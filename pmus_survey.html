@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <!--CSS BOOTSTRAP-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!--JS BOOTSTRAP-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+        </script>
+
+    <!--TABLE BOOTSTRAP-->
+    <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
+
+    <style>
+        body {
+            color: #404E67;
+            background: #F5F7FA;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .table-wrapper {
+            width: auto;
+            margin: 30px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+        }
+
+        .table-title {
+            align: center;
+            margin: 0 0 10px;
+        }
+
+        .table-title h2 {
+            margin: 6px 0 0;
+            font-size: 22px;
+        }
+
+        .table-title .add-new {
+            float: right;
+            height: 30px;
+            font-weight: bold;
+            font-size: 12px;
+            text-shadow: none;
+            min-width: 100px;
+            border-radius: 50px;
+            line-height: 13px;
+        }
+
+        .table-title .add-new i {
+            margin-right: 4px;
+        }
+
+        table.table {
+            table-layout: fixed;
+        }
+
+        table.table tr th,
+        table.table tr td {
+            border-color: #e9e9e9;
+        }
+
+        table.table th i {
+            font-size: 13px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        table.table th:last-child {
+            width: 100px;
+        }
+
+        table.table td a {
+            cursor: pointer;
+            display: inline-block;
+            margin: 0 5px;
+            min-width: 24px;
+        }
+
+        table.table td a.add {
+            color: #27C46B;
+        }
+
+        table.table td a.edit {
+            color: #FFC107;
+        }
+
+        table.table td a.delete {
+            color: #E34724;
+        }
+
+        table.table td i {
+            font-size: 19px;
+        }
+
+        table.table td a.add i {
+            font-size: 24px;
+            margin-right: -1px;
+            position: relative;
+            top: 3px;
+        }
+
+        table.table .form-control {
+            height: 32px;
+            line-height: 32px;
+            box-shadow: none;
+            border-radius: 2px;
+        }
+
+        table.table .form-control.error {
+            border-color: #f50000;
+        }
+
+        table.table td .add {
+            display: none;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+            var actions = $("table td:last-child").html();
+            // Append table with add row form on add new button click
+            $(".add-new").click(function () {
+                $(this).attr("disabled", "disabled");
+                var index = $("table tbody tr:last-child").index();
+                var row = '<tr>' +
+                    "<td>" +
+                    "<select>" +
+                    "<option>Plano de Mobilidade Sustentável</option>" +
+                    "<option>Plano de Mobilidade e Transportes</option>" +
+                    "<option>Plano de Ação de Mobilidade Urbana Sustentável</option>" +
+                    "<option>Outros(Indique por extenso*)</option>" +
+                    "</select>" +
+                    "</td>" +
+
+                    "<td>" +
+                    "<select>" +
+                    "<option>Intermunicipal</option>" +
+                    "<option>Municipal</option>" +
+                    "<option>Urbano</option>" +
+                    "<option>Outro</option>" +
+                    "</select>" +
+                    "</td>" +
+
+                    "<td>" +
+                    "<select>" +
+                    "<option>Elaboração</option>" +
+                    "<option>Aprovação</option>" +
+                    "<option>Implementação</option>" +
+                    "</select>" +
+                    "</td>" +
+
+                    "<td>" +
+                    "<input type='date' id='planoElaboradoData' name='planoElaboradoData'>" +
+                    "</td>" +
+
+                    "<td>" +
+                    "<input type='date' id='planoElaboradoData' name='planoElaboradoData'>" +
+                    "</td>" +
+
+                    "<td>" +
+                    "<input type='' class='form-control' id='' aria-describedby='entidade'>" +
+                    "</td>" +
+
+                    "<td>" +
+                    "<select>" +
+                    "<option value='cicl'>Própria</option>" +
+                    "<option value='pedonal'>Contratação Externa</option>" +
+                    "<option value='tansp_pub'>Outra</option>" +
+                    "</select>" +
+                    "</td>" +
+
+                    "<td>" +
+                    "<select>" +
+                    "<option value='cicl'>Ciclável</option>" +
+                    "<option value='pedonal'>Pedonal</option>" +
+                    "<option value='tansp_pub'>Transporte Público</option>" +
+                    "<option value='transp_flex'>Transporte Flexível</option>" +
+                    "<option value='transp_escolar'>Transporte Escolar</option>" +
+                    "<option value='inter'>Interfaces</option>" +
+                    "<option value='parking'>Estacionamento</option>" +
+                    "<option value='log_urbana'>Logística Urbana</option>" +
+                    "<option value='seg_rodo'>Segurança Rodoviária</option>" +
+                    "<option value='acessib_universal'>Acessibilidade Universal</option>" +
+                    "<option value='outros'>Outros</option>" + "</select>" + "</td>" +
+
+                    "<td>" +
+                    "<select>" +
+                    "<option value='cicl'>Pacote da Mobilidade IMT</option>" +
+                    "<option value='pedonal'>Guia SUMP 1.0</option>" +
+                    "<option value='tansp_pub'>Guia SUMP 2.0</option>" +
+                    "<option value='tansp_pub'>Outro</option>" + "</select>" +
+                    "</td>" +
+
+                    "<td>" +
+                    "<select>" +
+                    "<option value=''>Sim</option>" + "<option value=''>Não</option>" + "</select>" +
+                    "</td>" +
+
+                    '<td>' + actions + '</td>' +
+                    '</tr>';
+                $("table").append(row);
+                $("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
+                $('[data-toggle="tooltip"]').tooltip();
+            });
+            // Add row on add button click
+            $(document).on("click", ".add", function () {
+                var empty = false;
+                var input = $(this).parents("tr").find('input[type="text"]');
+                input.each(function () {
+                    if (!$(this).val()) {
+                        $(this).addClass("error");
+                        empty = true;
+                    } else {
+                        $(this).removeClass("error");
+                    }
+                });
+                $(this).parents("tr").find(".error").first().focus();
+                if (!empty) {
+                    input.each(function () {
+                        $(this).parent("td").html($(this).val());
+                    });
+                    $(this).parents("tr").find(".add, .edit").toggle();
+                    $(".add-new").removeAttr("disabled");
+                }
+            });
+            // Edit row on edit button click
+            $(document).on("click", ".edit", function () {
+                $(this).parents("tr").find("td:not(:last-child)").each(function () {
+                    $(this).html('<input type="text" class="form-control" value="' + $(this)
+                        .text() + '">');
+                });
+                $(this).parents("tr").find(".add, .edit").toggle();
+                $(".add-new").attr("disabled", "disabled");
+            });
+            // Delete row on delete button click
+            $(document).on("click", ".delete", function () {
+                $(this).parents("tr").remove();
+                $(".add-new").removeAttr("disabled");
+            });
+        });
+    </script>
+
+    <title>PMUS-IMT - survey</title>
+</head>
+
+
+<body>
+
+
+
+    <div class="container">
+        <div class="jumbotron">
+            <h2 align="center">Planeamento da Mobilidade Urbana Sustentável</h2>
+            <!--<p align="center">IMT-DSEAP</p>-->
+        </div>
+        <div>
+            <img src="..//img/futuro_coletivo.png"  class="img-fluid" alt="futuro_coletivo">
+        </div>
+        <p></p>
+        <div>
+            <p align="justify">No âmbito do <a
+                    href="https://ec.europa.eu/commission/presscorner/detail/en/qanda_21_6729">novo quadro da UE para a
+                    mobilidade urbana</a>, publicado em dezembro de 2021, pretende o IMT constituir um repositório
+                oficial dos instrumentos de planeamento da mobilidade urbana sustentável desenvolvidos em Portugal desde
+                2013, ano em que a Comissão Europeia lançou o Pacote de mobilidade urbana e o conceito de Plano de
+                Mobilidade Urbana Sustentável.</p>
+        </div>
+        <br>
+
+
+
+        <form needs-validation name="pmus_form" method="post" action="https://formsubmit.co/pmus@imt-ip.pt">
+
+
+            <!--Identifique a sua entidade:-->
+            <div needs-validation class="form-group">
+                <label for="identidadenome">1. Entidade:</label>
+                <input type="entidadeid" class="form-control" id="validadionCustom02" aria-describedby="entidade"
+                    placeholder="exemplo: Instituto da Mobilidade e dos Transportes" required>
+            </div>
+
+
+            <!--Nome do responsável pelo preenchimento:
+            <div class="form-group">
+                <label for="emailpoc">2. Nome do responsável do preenchimento: </label>
+                <input type="entidadeid" class="form-control" id="validadionCustom02" aria-describedby="entidade"
+                    placeholder="" required>
+            </div>-->
+
+
+            <!--Endereço de e-mail do ponto de contacto:
+            <div class="form-group">
+                <label for="emailpoc">3. E-mail:</label>
+                <input type="email" class="form-control" id="validationCustom01" aria-describedby="emailpoc"
+                    placeholder="exemplo@imt-ip.pt" required>-->
+
+            </div>
+
+            <div >
+                <div class="table-responsive">
+                    <div class="table-wrapper">
+                        <div class="table-title">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <small align="justify">* Se a opção não constar no seletor, clique em adicionar nova linha e de seguida clique no sinal de "+" no fundo da tabela, depois clique no sinal do "lápis" para a edição dos campos.</small>
+                                </div>
+                                <div class="col-sm-4">
+                                    <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Adicionar nova linha</button>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table table-bordered table-responsive">
+                            <thead>
+                                <tr>
+                                    <th>Tipo de Plano</th>
+                                    <th>Escala de Abrangência</th>
+                                    <th>Fase de execução</th>
+                                    <th>Ano de conclusao</th>
+                                    <th>Ano de aprovação</th>
+                                    <th>N.º anos de vigência</th>
+                                    <th>Elaboração</th>
+                                    <th>Áreas consideradas</th>
+                                    <th>Documentos de referência</th>
+                                    <th>Disponível Online</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <select name="" id="">
+                                            <option>Plano de Mobilidade Sustentável</option>
+                                            <option>Plano de Mobilidade e Transportes</option>
+                                            <option>Plano de Ação de Mobilidade Urbana Sustentável</option>
+                                        </select>
+                                    </td>
+
+                                    <td>
+                                        <select name="">
+                                            <option>Intermunicipal</option>
+                                            <option>Municipal</option>
+                                            <option>Urbano</option>
+                                            <option>Outro</option>
+                                        </select>
+                                    </td>
+
+                                    <td>
+                                        <select id="faseExecucao" name="faseExecucao">
+                                            <option>Elaboração</option>
+                                            <option>Aprovação</option>
+                                            <option>Implementação</option>
+                                        </select>
+                                    </td>
+
+                                    <td>
+                                        <input type="date" id="planoElaboradoData" name="planoElaboradoData">
+                                    </td>
+
+                                    <td>
+                                        <input type="date" id="anoAprovacao" name="anoAprovacao">
+                                    </td>
+
+                                    <td>
+                                        <input type="" class="form-control" id="" aria-describedby="entidade"
+                                            placeholder="" required>
+                                    </td>
+
+                                    <td>
+                                        <select name="">
+                                            <option value="">Própria</option>
+                                            <option value="">Contratação Externa</option>
+                                        </select>
+                                    </td>
+
+                                    <td>
+                                        <select name="" id="">
+                                            <option value=" cicl ">Ciclável</option>
+                                            <option value=" pedonal ">Pedonal</option>
+                                            <option value=" tansp_pub ">Transporte Público
+                                            </option>
+                                            <option value=" transp_flex ">Transporte Flexível
+                                            </option>
+                                            <option value=" transp_escolar ">Transporte Escolar
+                                            </option>
+                                            <option value=" inter ">Interfaces</option>
+                                            <option value=" parking ">Estacionamento</option>
+                                            <option value=" log_urbana ">Logística Urbana</option>
+                                            <option value=" seg_rodo ">Segurança Rodoviária
+                                            </option>
+                                            <option value=" acessib_universal ">AcessibilidadeUniversal</option>
+                                        </select>
+                                    </td>
+
+
+                                    <td>
+                                        <select name=" docs ">
+                                            <option value=" cicl ">Pacote da Mobilidade IMT</option>
+                                            <option value=" pedonal ">Guia SUMP 1.0</option>
+                                            <option value=" tansp_pub ">Guia SUMP 2.0</option>
+                                            <option value=" tansp_pub ">Outro</option>
+                                        </select>
+                                    </td>
+
+                                    <td>
+                                        <select name=" url ">
+                                            <option value=" ">Sim</option>
+                                            <option value=" ">Não</option>
+                                        </select>
+                                    </td>
+
+                                    <td>
+                                        <a class=" add " title=" Add " data-toggle=" tooltip "><i
+                                                class=" material-icons ">&#xE03B;</i></a>
+                                        <a class=" edit " title=" Edit " data-toggle=" tooltip "><i
+                                                class=" material-icons ">&#xE254;</i></a>
+                                        <a class=" delete " title=" Delete " data-toggle=" tooltip "><i
+                                                class=" material-icons ">&#xE872;</i></a>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                        <!--Indique o URL de acesso online ao Plano:-->
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Indique o URL de acesso online ao Plano:</label>
+                            <input type="entidadeid" class="form-control" id="entidadeid" aria-describedby="onlineURL"
+                                placeholder="exemplo: https://wwww.imt.pt/PlanoXpto1; https://wwww.imt.pt/PlanoXpto2 ">
+                        </div>
+                        <br>
+
+
+                        <!--Carregue os documentos-->
+                        <div class="form-group">
+                            <label for="exampleFormControlFile1">Carregue os documentos</label>
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                        </div>
+
+
+
+                        <label for="emailpoc">Nome do responsável pelo preenchimento:</label>
+                        <input type="text" name="name" placeholder="" required>
+
+                        <label for="emailpoc">E-mail do responsável do preenchimento: </label>
+                        <input type="email" name="email" placeholder="Email Address" required>
+
+                        <!--COLOCAR O URL ONDE  O SURVEY VAI FICAR ALOJADO-->
+                        <input type="hidden" name="_next" value="https://yourdomain.co/thank_youpage.html">
+                        <br><br>
+                        <button type="submit">Enviar</button>
+
+
+
+
+
+        </form>
+
+
+
+    </div>
+    <footer>
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);"><a class="text-reset fw-bold" href="http://bdjur.almedina.net/item.php?field=node_id&value=2036519">Direção de Serviços de Estudos, Avaliação e Prospetiva -</a>
+            <a class="text-reset fw-bold" href="https://www.imt-ip.pt/sites/IMTT/Portugues/Paginas/IMTHome.aspx">IMT</a>
+          </div>
+    </footer>
+
+
+
+</body>
+
+</html>

@@ -81,6 +81,7 @@
         table.table tr th,
         table.table tr td {
             border-color: #e9e9e9;
+            text-align: center;
         }
 
         table.table th i {
@@ -270,184 +271,195 @@
 
 <body>
 
+    <form needs-validation name="pmus_form" method="post" action="https://formsubmit.co/pmus@imt-ip.pt">
 
-
-    <div class="container">
-        <div class="jumbotron">
-            <h2 align="center">Planeamento da Mobilidade Urbana Sustentável</h2>
-            <!--<p align="center">IMT-DSEAP</p>-->
         </div>
-        <div>
-            <img src="..//img/futuro_coletivo.png"  class="img-fluid" alt="futuro_coletivo">
-        </div>
-        <p></p>
-        <div>
-            <p align="justify">No âmbito do <a
-                    href="https://ec.europa.eu/commission/presscorner/detail/en/qanda_21_6729">novo quadro da UE para a
-                    mobilidade urbana</a>, publicado em dezembro de 2021, pretende o IMT constituir um repositório
-                oficial dos instrumentos de planeamento da mobilidade urbana sustentável desenvolvidos em Portugal desde
-                2013, ano em que a Comissão Europeia lançou o Pacote de mobilidade urbana e o conceito de Plano de
-                Mobilidade Urbana Sustentável.</p>
-        </div>
-        <br>
 
+        <!--TABELA-->
+        <div class="container">
+            <div class="table-responsive">
+                <div class="table-wrapper">
+                    <div class="table-title">
+                        <div class="form-group">
+                            <div class="jumbotron">
+                                <h2 align="center">Planeamento da Mobilidade Urbana Sustentável</h2>
+                                <!--<p align="center">IMT-DSEAP</p>-->
+                            </div>
+                            <div>
+                                <img src="..//img/futuro_coletivo.png" class="img-fluid" alt="futuro_coletivo">
+                            </div>
+                            <p></p>
+                            <div>
+                                <p align="justify">No âmbito do <a
+                                        href="https://ec.europa.eu/commission/presscorner/detail/en/qanda_21_6729">novo
+                                        quadro da UE para a
+                                        mobilidade urbana</a>, publicado em dezembro de 2021, pretende o IMT constituir
+                                    um repositório
+                                    oficial dos instrumentos de planeamento da mobilidade urbana sustentável
+                                    desenvolvidos em Portugal desde
+                                    2013, ano em que a Comissão Europeia lançou o Pacote de mobilidade urbana e o
+                                    conceito de Plano de
+                                    Mobilidade Urbana Sustentável.</p>
+                            </div>
+                            <br>
+                            <!--Identifique a sua entidade:-->
+                            <div needs-validation class="form-group">
+                                <label for="entidadeid">Entidade:</label>
+                                <input type="entidadeid" class="form-control" id="entidadeid"
+                                    aria-describedby="entidadeid"
+                                    placeholder="exemplo: Instituto da Mobilidade e dos Transportes" required>
+                            </div>
+                            <br>
+                           
 
-
-        <form needs-validation name="pmus_form" method="post" action="https://formsubmit.co/pmus@imt-ip.pt">
-
-
-            <!--Identifique a sua entidade:-->
-            <div needs-validation class="form-group">
-                <label for="identidadenome">1. Entidade:</label>
-                <input type="entidadeid" class="form-control" id="validadionCustom02" aria-describedby="entidade"
-                    placeholder="exemplo: Instituto da Mobilidade e dos Transportes" required>
-            </div>
-
-
-            <!--Nome do responsável pelo preenchimento:
-            <div class="form-group">
-                <label for="emailpoc">2. Nome do responsável do preenchimento: </label>
-                <input type="entidadeid" class="form-control" id="validadionCustom02" aria-describedby="entidade"
-                    placeholder="" required>
-            </div>-->
-
-
-            <!--Endereço de e-mail do ponto de contacto:
-            <div class="form-group">
-                <label for="emailpoc">3. E-mail:</label>
-                <input type="email" class="form-control" id="validationCustom01" aria-describedby="emailpoc"
-                    placeholder="exemplo@imt-ip.pt" required>-->
-
-            </div>
-
-            <div >
-                <div class="table-responsive">
-                    <div class="table-wrapper">
-                        <div class="table-title">
                             <div class="row">
                                 <div class="col-sm-8">
-                                    <small align="justify">* Se a opção não constar no seletor, clique em adicionar nova linha e de seguida clique no sinal de "+" no fundo da tabela, depois clique no sinal do "lápis" para a edição dos campos.</small>
                                 </div>
                                 <div class="col-sm-4">
-                                    <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Adicionar nova linha</button>
+                                    <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i>
+                                        Adicionar nova
+                                        linha</button>
                                 </div>
                             </div>
                         </div>
-                        <table class="table table-bordered table-responsive">
-                            <thead>
-                                <tr>
-                                    <th>Tipo de Plano</th>
-                                    <th>Escala de Abrangência</th>
-                                    <th>Fase de execução</th>
-                                    <th>Ano de conclusao</th>
-                                    <th>Ano de aprovação</th>
-                                    <th>N.º anos de vigência</th>
-                                    <th>Elaboração</th>
-                                    <th>Áreas consideradas</th>
-                                    <th>Documentos de referência</th>
-                                    <th>Disponível Online</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <select name="" id="">
-                                            <option>Plano de Mobilidade Sustentável</option>
-                                            <option>Plano de Mobilidade e Transportes</option>
-                                            <option>Plano de Ação de Mobilidade Urbana Sustentável</option>
-                                        </select>
-                                    </td>
 
-                                    <td>
-                                        <select name="">
-                                            <option>Intermunicipal</option>
-                                            <option>Municipal</option>
-                                            <option>Urbano</option>
-                                            <option>Outro</option>
-                                        </select>
-                                    </td>
+                        <div class="form-group">
+                            <table class="table table-bordered table-responsive"  >
+                                <thead>
+                                    <tr>
+                                        <th>Tipo de Plano</th>
+                                        <th>Escala de Abrangência</th>
+                                        <th>Fase de execução</th>
+                                        <th>Ano de conclusao</th>
+                                        <th>Ano de aprovação</th>
+                                        <th>N.º anos de vigência</th>
+                                        <th>Elaboração</th>
+                                        <th>Áreas consideradas</th>
+                                        <th>Documentos de referência</th>
+                                        <th>Disponível Online</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <select type="" name="tipo_de_plano" id="tipoplano">
+                                                <option>Plano de Mobilidade Sustentável</option>
+                                                <option>Plano de Mobilidade e Transportes</option>
+                                                <option>Plano de Ação de Mobilidade Urbana Sustentável</option>
+                                            </select>
+                                        </td>
 
-                                    <td>
-                                        <select id="faseExecucao" name="faseExecucao">
-                                            <option>Elaboração</option>
-                                            <option>Aprovação</option>
-                                            <option>Implementação</option>
-                                        </select>
-                                    </td>
+                                        <td>
+                                            <select name="abragencia" id="abragencia">
+                                                <option>Intermunicipal</option>
+                                                <option>Municipal</option>
+                                                <option>Urbano</option>
+                                                <option>Outro</option>
+                                            </select>
+                                        </td>
 
-                                    <td>
-                                        <input type="date" id="planoElaboradoData" name="planoElaboradoData">
-                                    </td>
+                                        <td>
+                                            <select id="faseExecucao" name="faseExecucao">
+                                                <option>Elaboração</option>
+                                                <option>Aprovação</option>
+                                                <option>Implementação</option>
+                                            </select>
+                                        </td>
 
-                                    <td>
-                                        <input type="date" id="anoAprovacao" name="anoAprovacao">
-                                    </td>
+                                        <td>
+                                            <input type="date" id="planoElaboradoData" name="planoElaboradoData">
+                                        </td>
 
-                                    <td>
-                                        <input type="" class="form-control" id="" aria-describedby="entidade"
-                                            placeholder="" required>
-                                    </td>
+                                        <td>
+                                            <input type="date" id="anoAprovacao" name="anoAprovacao">
+                                        </td>
 
-                                    <td>
-                                        <select name="">
-                                            <option value="">Própria</option>
-                                            <option value="">Contratação Externa</option>
-                                        </select>
-                                    </td>
+                                        <td>
+                                            <input type="" id="anosVigencia" aria-describedby="anosVigencia" required>
+                                        </td>
 
-                                    <td>
-                                        <select name="" id="">
-                                            <option value=" cicl ">Ciclável</option>
-                                            <option value=" pedonal ">Pedonal</option>
-                                            <option value=" tansp_pub ">Transporte Público
-                                            </option>
-                                            <option value=" transp_flex ">Transporte Flexível
-                                            </option>
-                                            <option value=" transp_escolar ">Transporte Escolar
-                                            </option>
-                                            <option value=" inter ">Interfaces</option>
-                                            <option value=" parking ">Estacionamento</option>
-                                            <option value=" log_urbana ">Logística Urbana</option>
-                                            <option value=" seg_rodo ">Segurança Rodoviária
-                                            </option>
-                                            <option value=" acessib_universal ">AcessibilidadeUniversal</option>
-                                        </select>
-                                    </td>
+                                        <td>
+                                            <select name="" id="tipo_elab">
+                                                <option value="propria" id="propria">Própria</option>
+                                                <option value="externa" id="externa">Contratação Externa</option>
+                                            </select>
+                                        </td>
+
+                                        <td>
+                                            <select name="areaconsid" id="areaconsid">
+                                                <option value="cicl" id="cicl">Ciclável</option>
+                                                <option value="pedonal" id="pedonal">Pedonal</option>
+                                                <option value="tansp_pub" id="transp_pub">Transporte Público
+                                                </option>
+                                                <option value="transp_flex" id="transp_flex">Transporte Flexível
+                                                </option>
+                                                <option value="transp_escolar" id="transp_escolar">Transporte Escolar
+                                                </option>
+                                                <option value="inter" id="inter">Interfaces</option>
+                                                <option value="parking" id="parking">Estacionamento</option>
+                                                <option value="log_urbana" id="log_urbana">Logística Urbana</option>
+                                                <option value="seg_rodo" id="seg_rodo">Segurança Rodoviária
+                                                </option>
+                                                <option value="acessib_uni" id="acessib_uni">Acessibilidade Universal
+                                                </option>
+                                            </select>
+                                        </td>
 
 
-                                    <td>
-                                        <select name=" docs ">
-                                            <option value=" cicl ">Pacote da Mobilidade IMT</option>
-                                            <option value=" pedonal ">Guia SUMP 1.0</option>
-                                            <option value=" tansp_pub ">Guia SUMP 2.0</option>
-                                            <option value=" tansp_pub ">Outro</option>
-                                        </select>
-                                    </td>
+                                        <td>
+                                            <select name="docs">
+                                                <option value="pacMob" id="pacMob">Pacote da Mobilidade IMT</option>
+                                                <option value="GS1" id="GS1">Guia SUMP 1.0</option>
+                                                <option value="GS2" id="GS2">Guia SUMP 2.0</option>
+                                                <option value="ouros_docs_ref" id="ouros_docs_ref">Outros</option>
+                                            </select>
+                                        </td>
 
-                                    <td>
-                                        <select name=" url ">
-                                            <option value=" ">Sim</option>
-                                            <option value=" ">Não</option>
-                                        </select>
-                                    </td>
+                                        <td>
+                                            <select name="url">
+                                                <option value="yes" id="url_yes">Sim</option>
+                                                <option value="no" id="url_no">Não</option>
+                                            </select>
+                                        </td>
 
-                                    <td>
-                                        <a class=" add " title=" Add " data-toggle=" tooltip "><i
-                                                class=" material-icons ">&#xE03B;</i></a>
-                                        <a class=" edit " title=" Edit " data-toggle=" tooltip "><i
-                                                class=" material-icons ">&#xE254;</i></a>
-                                        <a class=" delete " title=" Delete " data-toggle=" tooltip "><i
-                                                class=" material-icons ">&#xE872;</i></a>
-                                    </td>
-                                </tr>
+                                        <td>
+                                            <a class="add" title="Add" data-toggle=" tooltip"><i
+                                                    class=" material-icons">&#xE03B;</i></a>
+                                            <a class="edit" title=" Edit" data-toggle=" tooltip"><i
+                                                    class=" material-icons">&#xE254;</i></a>
+                                            <a class="delete" title="Delete" data-toggle="tooltip"><i
+                                                    class="material-icons">&#xE872;</i></a>
+                                        </td>
+                                    </tr>
 
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div>
+                            <small align="justify">* Se a opção não constar no seletor, clique em "adicionar nova
+                                linha" e
+                                de seguida clique no sinal de "+" no fundo da tabela, depois clique no sinal do
+                                "lápis"
+                                para a edição dos campos.</small>
+                        </div>
+
+
+                        <br>
+                        <!--Caso tenha sido realizada a consulta a outros documentos, mencione quais:
+                        <div class="form-group">
+                            <label for="docum_referencia">Caso tenha selecionado "Outros" nos documentos utilizados como
+                                referência, mencione quais:</label>
+                            <input type="text" class="form-control" id="docref" aria-describedby="docum_referencia"
+                                placeholder="Plano: PlanoXpt1 - Docxpto1; DocXpto2; Plano: PlanoXpto++ - DocXpto++;">
+                        </div>-->
+
+
+                        <br>
 
                         <!--Indique o URL de acesso online ao Plano:-->
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Indique o URL de acesso online ao Plano:</label>
-                            <input type="entidadeid" class="form-control" id="entidadeid" aria-describedby="onlineURL"
+                            <label for="url_plano">Indique o URL de acesso online ao Plano:</label>
+                            <input type="text" class="form-control" id="onlineurl" aria-describedby="onlineURL"
                                 placeholder="exemplo: https://wwww.imt.pt/PlanoXpto1; https://wwww.imt.pt/PlanoXpto2 ">
                         </div>
                         <br>
@@ -455,39 +467,65 @@
 
                         <!--Carregue os documentos-->
                         <div class="form-group">
-                            <label for="exampleFormControlFile1">Carregue os documentos</label>
-                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                            <label for="exampleFormControlFile1"><b>Carregue os ficheiros numa pasta zippada
+                                </b></label><br>
+                            <input type="file" class="upload_files" id="upload_files">
+                        </div>
+
+                        <br>
+                        <div class="form-group">
+                            <label for="identidadenome">Nome do responsável pelo preenchimento:</label>
+                            <input type="text" class="form-control" id="poc_name" aria-describedby="poc_name" required>
+
+                        </div>
+
+                        <br>
+                        <div class="form-group">
+                            <label for="identidadenome">E-mail: </label>
+                            <input type="email" class="form-control" id="poc_email" aria-describedby="poc_email"
+                                required>
+
                         </div>
 
 
 
-                        <label for="emailpoc">Nome do responsável pelo preenchimento:</label>
-                        <input type="text" name="name" placeholder="" required>
-
-                        <label for="emailpoc">E-mail do responsável do preenchimento: </label>
-                        <input type="email" name="email" placeholder="Email Address" required>
-
                         <!--COLOCAR O URL ONDE  O SURVEY VAI FICAR ALOJADO-->
-                        <input type="hidden" name="_next" value="https://yourdomain.co/thank_youpage.html">
-                        <br><br>
-                        <button type="submit">Enviar</button>
+                        <div class="form-group">
+                            <input type="hidden" name="_next" value="https://yourdomain.co/thank_youpage.html">
+                            <br><br>
+                            <div class="col-sm-" >
+
+                                <button type="submit" class="btn btn-secondary btn-lg"><i class="fa fa-plus"></i>
+                                    Enviar</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <br>
 
 
 
 
+                <div>
+                    <footer>
+                        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);"><a
+                                class="text-reset fw-bold"
+                                href="http://bdjur.almedina.net/item.php?field=node_id&value=2036519">Direção de
+                                Serviços de
+                                Estudos, Avaliação e Prospetiva -</a>
+                            <a class="text-reset fw-bold"
+                                href="https://www.imt-ip.pt/sites/IMTT/Portugues/Paginas/IMTHome.aspx">IMT</a>
+                        </div>
+                    </footer>
+                </div>
+            </div>
 
-        </form>
 
-
+    </form>
 
     </div>
-    <footer>
-        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);"><a class="text-reset fw-bold" href="http://bdjur.almedina.net/item.php?field=node_id&value=2036519">Direção de Serviços de Estudos, Avaliação e Prospetiva -</a>
-            <a class="text-reset fw-bold" href="https://www.imt-ip.pt/sites/IMTT/Portugues/Paginas/IMTHome.aspx">IMT</a>
-          </div>
-    </footer>
-
-
 
 </body>
 
